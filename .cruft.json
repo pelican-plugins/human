@@ -1,0 +1,28 @@
+{
+  "template": "https://github.com/getpelican/cookiecutter-pelican-plugin",
+  "commit": "f65dd17523e61a255f9cf54001811d1f02ff4c3a",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "plugin_name": "Human",
+      "repo_name": "human",
+      "package_name": "human",
+      "distribution_name": "pelican-human",
+      "version": "0.0.0",
+      "description": "Pelican plugin that vouches for human web sites",
+      "authors": "{name = \"Justin Mayer\", email = \"entroP@gmail.com\"}",
+      "keywords": "\"pelican\", \"plugin\", \"human\"",
+      "readme": "README.md",
+      "contributing": "CONTRIBUTING.md",
+      "license": "GNU Affero General Public License v3|AGPL-3.0",
+      "repo_url": "https://github.com/pelican-plugins/human",
+      "dev_status": "3 - Alpha",
+      "tests_exist": true,
+      "python_version": ">=3.11",
+      "pelican_version": ">=4.5",
+      "_template": "https://github.com/getpelican/cookiecutter-pelican-plugin",
+      "_commit": "f65dd17523e61a255f9cf54001811d1f02ff4c3a"
+    }
+  },
+  "directory": null
+}

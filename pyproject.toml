@@ -1,0 +1,117 @@
+[project]
+name = "pelican-human"
+version = "0.0.0"
+description = "Pelican plugin that vouches for human web sites"
+authors = [{name = "Justin Mayer", email = "entroP@gmail.com"}]
+license = {text = "AGPL-3.0"}
+readme = "README.md"
+keywords = ["pelican", "plugin", "human"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Framework :: Pelican",
+    "Framework :: Pelican :: Plugins",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "pelican>=4.5",
+]
+
+[project.scripts]
+vouchfor = "pelican.plugins.human.human:vouchfor_cli"
+
+[project.urls]
+"Homepage" = "https://github.com/pelican-plugins/human"
+"Issue Tracker" = "https://github.com/pelican-plugins/human/issues"
+"Changelog" = "https://github.com/pelican-plugins/human/blob/main/CHANGELOG.md"
+"Funding" = "https://donate.getpelican.com/"
+
+[project.optional-dependencies]
+markdown = ["markdown>=3.4"]
+
+[dependency-groups]
+lint = [
+    "invoke>=2.2",
+    "ruff>=0.15.7,<1.0.0",
+]
+test = [
+    "invoke>=2.2",
+    "markdown>=3.4",
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-sugar>=1.0",
+]
+
+[tool.pdm.build]
+source-includes = [
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+]
+includes = ["pelican/"]
+excludes = ["**/.DS_Store"]
+
+[tool.autopub]
+project-name = "Human"
+git-username = "botpub"
+git-email = "52496925+botpub@users.noreply.github.com"
+append-github-contributor = true
+
+[tool.ruff.lint]
+select = [
+  "B",   # flake8-bugbear
+  "BLE", # flake8-blind-except
+  "C4",  # flake8-comprehensions
+  "D",   # pydocstyle
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "I",   # isort
+  "ICN", # flake8-import-conventions
+  "ISC", # flake8-implicit-str-concat
+  "PGH", # pygrep-hooks
+  "PL",  # pylint
+  "RET", # flake8-return
+  "RUF", # ruff-specific rules
+  "SIM", # flake8-simplify
+  "T10", # flake8-debugger
+  "T20", # flake8-print
+  "TID", # flake8-tidy-imports
+  "TRY", # tryceratops
+  "UP",  # pyupgrade
+  "W",   # pycodestyle
+  "YTT", # flake8-2020
+]
+
+ignore = [
+  "D100",    # missing docstring in public module
+  "D104",    # missing docstring in public package
+  "D203",    # blank line before class docstring
+  "D213",    # multi-line docstring summary should start at the second line
+  "ISC001",  # disabled so `ruff format` works without warning
+  "T201",    # allow print() statements
+]
+
+[tool.ruff.lint.per-file-ignores]
+"test_*.py" = [
+    "D102",    # allow missing docstrings in public method
+    "PLR2004", # allow magic value comparisons
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-sort-within-sections = true
+known-first-party = ["pelican"]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
